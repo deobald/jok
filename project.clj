@@ -1,6 +1,6 @@
 (defproject
   jukebox "1.0.0-SNAPSHOT"
-  :description "Jukebox"
+  :description "Jokbox"
   :repositories {"local" ~(str (.toURI (java.io.File. "maven_repository")))}
   :dependencies [[org.clojure/clojure "1.2.0"]
                  [org.clojure/clojure-contrib "1.2.0"]
@@ -24,6 +24,6 @@
                      [lein-javac "1.2.1-SNAPSHOT"]
                      [speclj "1.5.2"]
                      [speclj-growl "1.0.0-SNAPSHOT"]]
-  :main jukebox-web.core
-  :ring {:handler jukebox-web.core/app}
+  :main jukebox-web.sex.core
+  :ring {:handler jukebox-web.sex.core/app}
   :test-path "spec/")
