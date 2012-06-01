@@ -6,10 +6,8 @@
   (view/index request))
 
 (defn upload [request]
-  (when-let [current-user (-> request :session :current-user)]
-    (let [{:keys [tempfile filename]}
-          (-> request :params :file)]
-      (model/save-file tempfile
-                       (model/extension filename)))
-    "upload complete"))
+  (let [{:keys [tempfile filename]}
+        (-> request :params :file)]
+    (model/save-file tempfile filename))
+  "upload complete")
 

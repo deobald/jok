@@ -1,13 +1,14 @@
 (ns jukebox-web.sex.models.white
-  (:require [clojure.string :as string]))
+  (:require [clojure.string :as string]
+            [clojure.java.io :as io]
+            [jukebox-web.sex.models.tagging :as tagging]
+            [jukebox-web.sex.models.utils :as utils]))
 
-(defn save-file [tempfile ext]
-  "oh, we probably uploaded that.")
+;; TODO: make configurable
+(def MUSIC-DIR "music")
 
-;; (defn save-file [tempfile user ext]
-;;   (let [file-with-ext (io/as-file (file-path *music-library* (str (UUID/randomUUID) "." ext)))]
-;;     (io/copy tempfile file-with-ext)
-;;     (rename-with-tags user file-with-ext)))
-
-(defn extension [filename]
-  (last (string/split (str filename) #"\.")))
+(defn save-file [tempfile filename]
+  (let [ext (utils/extension filename)
+        destination (utils/uuid-file MUSIC-DIR ext)]
+    (io/copy tempfile destination)
+    (tagging/correct-filename destination MUSIC-DIR)))

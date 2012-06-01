@@ -81,7 +81,6 @@ class PlayerNotification
     window.webkitNotifications.requestPermission ->
       self.renderButton()
 
-
 $ -> window.PlayerNotification = new PlayerNotification
 
 
@@ -121,7 +120,7 @@ class Files
     @notification = new FileNotification '#notifications', '#file-notification'
     @uploader = new Uploader
       method: 'POST'
-      url: '/library/upload'
+      url: '/white/upload'
 
     document.addEventListener "dragenter", @stopActions, false
     document.addEventListener "dragexit", @stopActions, false

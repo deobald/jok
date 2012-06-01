@@ -185,7 +185,7 @@
       this.notification = new FileNotification('#notifications', '#file-notification');
       this.uploader = new Uploader({
         method: 'POST',
-        url: '/library/upload'
+        url: '/white/upload'
       });
       document.addEventListener("dragenter", this.stopActions, false);
       document.addEventListener("dragexit", this.stopActions, false);
