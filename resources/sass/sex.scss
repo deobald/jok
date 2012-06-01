@@ -1,6 +1,29 @@
+@import "compass/css3/border-radius";
 
-// just some crap
-html, body {
-  background-color: #eee;
+$dark-gray: #333;
+$white: #efefef;
+
+@mixin prgmr-font {
+  font-family: "Anonymous Pro", "Courier New";
+  font-weight: bold;
 }
 
+body, h1, h2, h3, h4, h5, div, p {
+  @include prgmr-font;
+}
+
+.white {
+  .dropbox {
+    $size: 600px;
+    $radius: ($size / 10);
+    @include border-radius($radius);
+    width: $size;
+    height: $size;
+    border: 8px dashed $dark-gray;
+
+    $font: $radius;
+    font-size: $font;
+    // TODO: this breaks the square. unbreak.
+    padding: (($size - $font) / 2) 0px 0px 0px;
+  }
+}

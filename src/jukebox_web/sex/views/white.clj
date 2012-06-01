@@ -3,6 +3,8 @@
 
 (defn index [request]
   (layou/t request
-           [:div
-            "hello!"]))
+           [:div.white
+            [:center
+             [:div.dropbox
+              "drop files here."]]]))
 
