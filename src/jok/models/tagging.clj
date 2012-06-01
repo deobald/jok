@@ -1,9 +1,9 @@
-(ns jukebox-web.sex.models.tagging
+(ns jok.models.tagging
   (:import [java.util.logging Logger Level]
            [org.jaudiotagger.audio AudioFileIO]
            [org.jaudiotagger.tag FieldKey])
   (:require [clojure.java.io :as io]
-            [jukebox-web.sex.models.utils :as utils]))
+            [jok.models.utils :as utils]))
 
 (.setLevel (Logger/getLogger "org.jaudiotagger") Level/WARNING)
 

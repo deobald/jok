@@ -1,4 +1,4 @@
-(ns jukebox-web.sex.models.utils
+(ns jok.models.utils
   (:import [java.io File]
            [java.util UUID])
   (:require [clojure.string :as string]

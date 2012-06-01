@@ -1,0 +1,24 @@
+/* line 13, ../../sass/jok.scss */
+body, h1, h2, h3, h4, h5, div, p {
+  font-family: "Anonymous Pro", "Courier New";
+  font-weight: bold;
+}
+
+/* line 17, ../../sass/jok.scss */
+body.white {
+  background-color: #f8f7fc;
+}
+
+/* line 21, ../../sass/jok.scss */
+.dropbox {
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+  width: 600px;
+  height: 600px;
+  border: 8px dashed #333333;
+  font-size: 60px;
+  padding: 270px 0px 0px 0px;
+}

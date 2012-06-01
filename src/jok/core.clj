@@ -1,4 +1,4 @@
-(ns jukebox-web.sex.core
+(ns jok.core
   (:use ;; TODO: switch to gaz's super powerful cli lib
         clojure.contrib.command-line)
   (:require [compojure.handler :as compojure]
@@ -6,8 +6,8 @@
             [ring.middleware.cors :as cors]
             [ring.adapter.jetty :as adapter]
 
-            [jukebox-web.sex.routes :as routes]
-            ;;[jukebox-player.sex.core :as player]
+            [jok.routes :as routes]
+            ;;[jukebox-player.core :as player]
             ;;[jukebox-web.models.playlist :as playlist]
             ))
 

@@ -1,5 +1,5 @@
-(ns jukebox-web.sex.views.white
-  (:require [jukebox-web.sex.views.layou :as layou])
+(ns jok.views.white
+  (:require [jok.views.layou :as layou])
   (:use [hiccup.core :only [html]]))
 
 (defn- progress-bar []

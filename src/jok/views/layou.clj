@@ -1,4 +1,4 @@
-(ns jukebox-web.sex.views.layou
+(ns jok.views.layou
   (:use [hiccup.core :only [html]]
         [hiccup.page-helpers :only [html5
                                     include-css]]))
@@ -14,8 +14,8 @@
     [:title "jok"]
     [:script {:src "/js/v/jquery-1.6.4.min.js"}]
     [:script {:src "/js/v/underscore-min.js"}]
-    [:script {:src "/js/sex.js"}]
-    (include-css "/css/sex.css")]
+    [:script {:src "/js/jok.js"}]
+    (include-css "/css/jok.css")]
 
    [:body {:data-accept "mp3|m4a|mp4|mpeg"
            :class color}

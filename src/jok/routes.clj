@@ -1,7 +1,7 @@
-(ns jukebox-web.sex.routes
+(ns jok.routes
   (:use [compojure.core :only [defroutes GET POST]])
   (:require [compojure.route :as route]
-            [jukebox-web.sex.controllers.white :as white-controller]))
+            [jok.controllers.white :as white-controller]))
 
 (defroutes roots
   (GET "/white" [] white-controller/index)
