@@ -18,7 +18,9 @@
 (defn t [request & content]
   (html5
    [:head
-    [:title "Jok"]
+    [:title "jok"]
+    [:script {:src "/js/v/jquery-1.6.4.min.js"}]
+    [:script {:src "/js/v/underscore-min.js"}]
     [:script {:src "/js/sex.js"}]
     (include-css "/css/sex.css")]
 
