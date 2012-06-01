@@ -9,3 +9,6 @@
 /checkouts
 nohup.out
 .lein*
+pom.xml
+*jar
+.lein-deps-sum
