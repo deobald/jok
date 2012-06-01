@@ -126,8 +126,6 @@ class Files
     document.addEventListener "dragexit", @stopActions, false
     document.addEventListener "dragover", @stopActions, false
     document.addEventListener "drop", @stopActions, false
-
-    # if @loggedIn
     document.addEventListener "drop", @render, false
 
   isAcceptable: (type) ->

@@ -8,14 +8,7 @@
     (html [:div {:class "alert-message success"}
            (-> request :flash :success)])))
 
-(defn- progress-bar []
-  (html [:script#file-notification {:type "text/example" }
-         [:li.uploading.alert-message.block-message
-          [:p "{{ file.name }} {{ file.size }}mb"]
-          [:div.progress-wrapper
-           [:div.progress-bar]]]]))
-
-(defn t [request & content]
+(defn t [request color & content]
   (html5
    [:head
     [:title "jok"]
@@ -24,8 +17,8 @@
     [:script {:src "/js/sex.js"}]
     (include-css "/css/sex.css")]
 
-   [:body {:data-accept "mp3|m4a|mp4|mpeg"}
+   [:body {:data-accept "mp3|m4a|mp4|mpeg"
+           :class color}
     (html
      (flash request)
-     (html content))
-    (progress-bar)]))
+     (html content))]))

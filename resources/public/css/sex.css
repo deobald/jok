@@ -1,11 +1,16 @@
-/* line 11, ../../sass/sex.scss */
+/* line 13, ../../sass/sex.scss */
 body, h1, h2, h3, h4, h5, div, p {
   font-family: "Anonymous Pro", "Courier New";
   font-weight: bold;
 }
 
-/* line 16, ../../sass/sex.scss */
-.white .dropbox {
+/* line 17, ../../sass/sex.scss */
+body.white {
+  background-color: #f8f7fc;
+}
+
+/* line 21, ../../sass/sex.scss */
+.dropbox {
   -webkit-border-radius: 60px;
   -moz-border-radius: 60px;
   -ms-border-radius: 60px;
