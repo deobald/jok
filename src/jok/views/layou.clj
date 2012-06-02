@@ -19,6 +19,12 @@
 
    [:body {:data-accept "mp3|m4a|mp4|mpeg"
            :class color}
-    (html
-     (flash request)
-     (html content))]))
+    [:div.page
+     [:div.navigation
+      [:ul
+       [:li [:a {:href "/white"} "White"]]
+       [:li [:a {:href "/yellow"} "Yellow"]]
+       [:li [:a {:href "/pink"} "Pink"]]]]
+     (html
+      (flash request)
+      (html content))]]))
