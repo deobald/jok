@@ -1,25 +1,35 @@
-/* line 13, ../../sass/jok.scss */
+/* line 14, ../../sass/jok.scss */
 body, h1, h2, h3, h4, h5, div, p {
   font-family: "Anonymous Pro", "Courier New";
   font-weight: bold;
 }
 
-/* line 17, ../../sass/jok.scss */
+/* line 18, ../../sass/jok.scss */
 body.white {
   background-color: #f8f7fc;
 }
 
-/* line 21, ../../sass/jok.scss */
+/* line 22, ../../sass/jok.scss */
 body.yellow {
   background-color: #f5dc58;
 }
 
-/* line 25, ../../sass/jok.scss */
+/* line 26, ../../sass/jok.scss */
+body.pink {
+  background-color: #e695a1;
+}
+
+/* line 30, ../../sass/jok.scss */
+body.blue {
+  background-color: #7ca6cf;
+}
+
+/* line 34, ../../sass/jok.scss */
 h1 {
   font-size: 96px;
 }
 
-/* line 29, ../../sass/jok.scss */
+/* line 38, ../../sass/jok.scss */
 .dropbox {
   -webkit-border-radius: 60px;
   -moz-border-radius: 60px;

@@ -3,14 +3,8 @@
   (:require [compojure.route :as route]
             [jok.controllers.white :as white-controller]
             [jok.controllers.yellow :as yellow-controller]
-            [jok.controllers.pink :as pink-controller]))
-
-(defn lost []
-  "lost!"
-  ;; (html5
-  ;;  [:h1
-  ;;   "how did you even get here?"])
-  )
+            [jok.controllers.pink :as pink-controller]
+            [jok.views.404 :as four-oh-four]))
 
 (defroutes roots
   (GET "/white" [] white-controller/index)
@@ -20,5 +14,5 @@
   (GET "/pink" [] pink-controller/index)
   
   (route/resources "/")
-  (route/not-found (lost)))
+  (route/not-found (four-oh-four/lost)))
 

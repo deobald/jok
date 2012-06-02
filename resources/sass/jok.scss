@@ -4,6 +4,7 @@ $dark-gray: #333;
 $white: #f8f7fc;
 $yellow: #f5dc58;
 $pink: #e695a1;
+$blue: #7ca6cf;
 
 @mixin prgmr-font {
   font-family: "Anonymous Pro", "Courier New";
@@ -20,6 +21,14 @@ body.white {
 
 body.yellow {
   background-color: $yellow;
+}
+
+body.pink {
+  background-color: $pink;
+}
+
+body.blue {
+  background-color: $blue;
 }
 
 h1 {
