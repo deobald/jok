@@ -1,5 +1,8 @@
 (ns jok.views.yellow
-  (:require [jok.views.layou :as layou]
+  (:require [hiccup.form :as form]
+            [hiccup.util :as hutil]
+            [jok.files :as jfiles]
+            [jok.views.layou :as layou]
             [jok.models.yellow :as model]))
 
 (defn- song-row [song]
@@ -9,9 +12,12 @@
    [:td (:album song)]
    [:td
     [:div.enqueue-button
-     [:form {:action "yellow/enqueue" :method "post"}
-      [:input {:type "hidden" :value (:file song) :name "file"}]
-      [:input {:type "submit" :value "+"}]]]]])
+     (form/form-to [:post "/yellow/enqueue"]
+                   (form/hidden-field "file" (:file song))
+                   (form/submit-button "+"))]
+    [:div.download-link
+     [:a {:href (hutil/url "/music"
+                           (jfiles/url-encode-parts (:relative-path song)))} "⇣"]]]])
 
 (defn- song-table [songs]
   [:table

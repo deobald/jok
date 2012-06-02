@@ -4,7 +4,7 @@
 (defn lost []
   (html5
    [:head
-    (include-css "css/jok.css")]
+    (include-css "/css/jok.css")]
    [:body {:class "blue"}
     [:center
      [:h1

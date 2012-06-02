@@ -3,7 +3,7 @@
   (:use [hiccup.core :only [html]]))
 
 (defn- song-list [song]
-  [:li song])
+  [:li (:title song)])
 
 (defn index [request songs]
   (layou/t request "pink"

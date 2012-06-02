@@ -9,5 +9,5 @@
   (view/index request (model/all-songs config/MUSIC-DIR)))
 
 (defn enqueue [request]
-  (pink/enqueue! (-> request :params :file))
+  (pink/enqueue! (model/to-song (-> request :form-params (get "file"))))
   (response/redirect "/yellow"))
