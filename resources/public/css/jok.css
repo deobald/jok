@@ -15,6 +15,11 @@ body.yellow {
 }
 
 /* line 25, ../../sass/jok.scss */
+h1 {
+  font-size: 96px;
+}
+
+/* line 29, ../../sass/jok.scss */
 .dropbox {
   -webkit-border-radius: 60px;
   -moz-border-radius: 60px;

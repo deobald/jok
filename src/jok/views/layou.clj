@@ -1,7 +1,7 @@
 (ns jok.views.layou
   (:use [hiccup.core :only [html]]
-        [hiccup.page-helpers :only [html5
-                                    include-css]]))
+        [hiccup.page :only [html5
+                            include-css]]))
 
 (defn- flash [request]
   (when (-> request :flash :success)

@@ -1,7 +1,7 @@
 (ns jukebox-web.views.hammertimes
   (:require [jukebox-web.views.layout :as layout]
             [jukebox-web.models.library :as library])
-  (:use [hiccup core form-helpers page-helpers]
+  (:use [hiccup core form page]
         [jukebox-web.util.file :only (relative-uri)]
         [jukebox-web.views.forms]))
 

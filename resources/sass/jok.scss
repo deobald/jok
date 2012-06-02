@@ -22,6 +22,10 @@ body.yellow {
   background-color: $yellow;
 }
 
+h1 {
+  font-size: 96px;
+}
+
 .dropbox {
   $size: 600px;
   $radius: ($size / 10);

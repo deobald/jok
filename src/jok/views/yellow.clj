@@ -6,14 +6,20 @@
   [:tr
    [:td (:title song)]
    [:td (:artist song)]
-   [:td (:album song)]])
+   [:td (:album song)]
+   [:td
+    [:div.enqueue-button
+     [:form {:action "yellow/enqueue" :method "post"}
+      [:input {:type "hidden" :value (:file song) :name "file"}]
+      [:input {:type "submit" :value "+"}]]]]])
 
-(defn- song-table [songs] 
+(defn- song-table [songs]
   [:table
    [:tr
     [:th "song"]
     [:th "artist"]
-    [:th "album"]]
+    [:th "album"]
+    [:th "actions"]]
    (map song-row songs)])
 
 (defn index [request songs]
