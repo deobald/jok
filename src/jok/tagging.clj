@@ -1,4 +1,4 @@
-(ns jok.models.tagging
+(ns jok.tagging
   (:import [java.util.logging Logger Level]
            [org.jaudiotagger.audio AudioFileIO]
            [org.jaudiotagger.tag FieldKey])
@@ -7,7 +7,7 @@
 
 (.setLevel (Logger/getLogger "org.jaudiotagger") Level/WARNING)
 
-(defn- extract [file]
+(defn track-metadata [file]
   (let [audio-file (AudioFileIO/read (io/as-file file))
         tags (.getTag audio-file)
         header (.getAudioHeader audio-file)]
@@ -18,7 +18,7 @@
       [:duration (.getTrackLength header)])))
 
 (defn correct-filename [file music-dir]
-  (let [{:keys [artist album title]} (extract file)
+  (let [{:keys [artist album title]} (track-metadata file)
         dir (utils/file-path music-dir
                              (utils/strip-slashes artist)
                              (utils/strip-slashes album))

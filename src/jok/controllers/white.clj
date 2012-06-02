@@ -1,5 +1,6 @@
 (ns jok.controllers.white
-  (:require [jok.views.white :as view]
+  (:require [jok.config :as config]
+            [jok.views.white :as view]
             [jok.models.white :as model]))
 
 (defn index [request]
@@ -8,6 +9,6 @@
 (defn upload [request]
   (let [{:keys [tempfile filename]}
         (-> request :params :file)]
-    (model/save-file tempfile filename))
+    (model/save-file tempfile filename config/MUSIC-DIR))
   "upload complete")
 

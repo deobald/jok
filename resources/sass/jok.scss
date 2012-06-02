@@ -18,6 +18,10 @@ body.white {
   background-color: $white;
 }
 
+body.yellow {
+  background-color: $yellow;
+}
+
 .dropbox {
   $size: 600px;
   $radius: ($size / 10);
