@@ -14,6 +14,7 @@
            [:div
             [:center
              [:div.dropbox
-              "drop files here."]]
+              [:h1
+               "drop files here."]]]
             (progress-bar)]))
 

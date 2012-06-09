@@ -1,35 +1,64 @@
-/* line 14, ../../sass/jok.scss */
+/* line 11, ../../sass/jok.scss */
 body, h1, h2, h3, h4, h5, div, p {
   font-family: "Anonymous Pro", "Courier New";
   font-weight: bold;
 }
 
-/* line 18, ../../sass/jok.scss */
+/* line 16, ../../sass/jok.scss */
+h1 {
+  font-size: 160px;
+}
+
+/* line 17, ../../sass/jok.scss */
+h2 {
+  font-size: 100px;
+}
+
+/* line 21, ../../sass/jok.scss */
 body.white {
   background-color: #f8f7fc;
 }
-
 /* line 22, ../../sass/jok.scss */
 body.yellow {
   background-color: #f5dc58;
 }
-
-/* line 26, ../../sass/jok.scss */
+/* line 23, ../../sass/jok.scss */
 body.pink {
   background-color: #e695a1;
 }
-
-/* line 30, ../../sass/jok.scss */
+/* line 24, ../../sass/jok.scss */
 body.blue {
   background-color: #7ca6cf;
 }
 
-/* line 34, ../../sass/jok.scss */
-h1 {
-  font-size: 96px;
+/* line 28, ../../sass/jok.scss */
+table {
+  width: 100%;
 }
 
-/* line 38, ../../sass/jok.scss */
+/* line 30, ../../sass/jok.scss */
+tr.song-row {
+  -webkit-border-radius: 1.8em;
+  -moz-border-radius: 1.8em;
+  -ms-border-radius: 1.8em;
+  -o-border-radius: 1.8em;
+  border-radius: 1.8em;
+  border: 4px dashed #333333;
+}
+
+/* line 34, ../../sass/jok.scss */
+th, td {
+  font-size: 3em;
+  padding: 0.4em 0.8em;
+  -webkit-border-radius: 1.8em;
+  -moz-border-radius: 1.8em;
+  -ms-border-radius: 1.8em;
+  -o-border-radius: 1.8em;
+  border-radius: 1.8em;
+  border: 4px dashed #333333;
+}
+
+/* line 42, ../../sass/jok.scss */
 .dropbox {
   -webkit-border-radius: 60px;
   -moz-border-radius: 60px;
@@ -39,6 +68,5 @@ h1 {
   width: 600px;
   height: 600px;
   border: 8px dashed #333333;
-  font-size: 60px;
-  padding: 270px 0px 0px 0px;
+  padding: 100px;
 }

@@ -15,6 +15,7 @@
     [:script {:src "/js/v/jquery-1.6.4.min.js"}]
     [:script {:src "/js/v/underscore-min.js"}]
     [:script {:src "/js/jok.js"}]
+    (include-css "/css/reset.css")]
     (include-css "/css/jok.css")]
 
    [:body {:data-accept "mp3|m4a|mp4|mpeg"

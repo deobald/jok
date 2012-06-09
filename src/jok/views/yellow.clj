@@ -6,7 +6,7 @@
             [jok.models.yellow :as model]))
 
 (defn- song-row [song]
-  [:tr
+  [:tr.song-row
    [:td (:title song)]
    [:td (:artist song)]
    [:td (:album song)]

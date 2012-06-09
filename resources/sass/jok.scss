@@ -1,40 +1,44 @@
 @import "compass/css3/border-radius";
 
+// variables
 $dark-gray: #333;
 $white: #f8f7fc;
 $yellow: #f5dc58;
 $pink: #e695a1;
 $blue: #7ca6cf;
 
-@mixin prgmr-font {
+// typography
+body, h1, h2, h3, h4, h5, div, p {
   font-family: "Anonymous Pro", "Courier New";
   font-weight: bold;
 }
 
-body, h1, h2, h3, h4, h5, div, p {
-  @include prgmr-font;
+h1 { font-size: 160px; }
+h2 { font-size: 100px; }
+
+// sections
+body {
+  &.white { background-color: $white; }
+  &.yellow { background-color: $yellow; }
+  &.pink { background-color: $pink; }
+  &.blue { background-color: $blue; }
 }
 
-body.white {
-  background-color: $white;
+// grid
+table { width: 100%; }
+// TODO: huh?
+tr.song-row {
+  @include border-radius(1.8em);
+  border: 4px dashed $dark-gray;
+}
+th, td {
+  font-size: 3em;
+  padding: 0.4em 0.8em;
+  @include border-radius(1.8em);
+  border: 4px dashed $dark-gray;
 }
 
-body.yellow {
-  background-color: $yellow;
-}
-
-body.pink {
-  background-color: $pink;
-}
-
-body.blue {
-  background-color: $blue;
-}
-
-h1 {
-  font-size: 96px;
-}
-
+// section: white
 .dropbox {
   $size: 600px;
   $radius: ($size / 10);
@@ -42,9 +46,5 @@ h1 {
   width: $size;
   height: $size;
   border: 8px dashed $dark-gray;
-
-  $font: $radius;
-  font-size: $font;
-  // TODO: this breaks the square. unbreak.
-  padding: (($size - $font) / 2) 0px 0px 0px;
+  padding: 100px;
 }
