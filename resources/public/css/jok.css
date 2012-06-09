@@ -5,31 +5,50 @@ body, h1, h2, h3, h4, h5, div, p {
 }
 
 /* line 18, ../../sass/jok.scss */
-body.white {
-  background-color: #f8f7fc;
+html, body, .page {
+  height: 100%;
 }
 
 /* line 22, ../../sass/jok.scss */
-body.yellow {
-  background-color: #f5dc58;
+.white {
+  background-color: #f8f7fc;
 }
 
 /* line 26, ../../sass/jok.scss */
-body.pink {
-  background-color: #e695a1;
+.yellow {
+  background-color: #f5dc58;
 }
 
 /* line 30, ../../sass/jok.scss */
-body.blue {
-  background-color: #7ca6cf;
+.pink {
+  background-color: #e695a1;
 }
 
 /* line 34, ../../sass/jok.scss */
+.blue {
+  background-color: #7ca6cf;
+}
+
+/* line 38, ../../sass/jok.scss */
 h1 {
   font-size: 96px;
 }
 
-/* line 38, ../../sass/jok.scss */
+/* line 42, ../../sass/jok.scss */
+.main {
+  float: left;
+  width: 90%;
+  min-height: 100%;
+}
+
+/* line 48, ../../sass/jok.scss */
+.sidebar {
+  float: left;
+  width: 5%;
+  min-height: 100%;
+}
+
+/* line 54, ../../sass/jok.scss */
 .dropbox {
   -webkit-border-radius: 60px;
   -moz-border-radius: 60px;

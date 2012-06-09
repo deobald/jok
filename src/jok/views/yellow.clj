@@ -29,4 +29,4 @@
    (map song-row songs)])
 
 (defn index [request songs]
-  (layou/t request "yellow" (song-table songs)))
+  (layou/t request "yellow" "white" "pink" (song-table songs)))
