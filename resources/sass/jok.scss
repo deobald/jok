@@ -16,27 +16,27 @@ body, h1, h2, h3, h4, h5, div, p {
 h1 { font-size: 160px; }
 h2 { font-size: 100px; }
 
-// sections
-body {
-  &.white { background-color: $white; }
-  &.yellow { background-color: $yellow; }
-  &.pink { background-color: $pink; }
-  &.blue { background-color: $blue; }
+// shared
+html, body, .page {
+  height: 100%;
 }
 
-// grid
-table { width: 100%; }
-// TODO: huh?
-tr.song-row {
-  @include border-radius(1.8em);
-  border: 4px dashed $dark-gray;
+.main {
+  float: left;
+  width: 90%;
+  min-height: 100%;
 }
-th, td {
-  font-size: 3em;
-  padding: 0.4em 0.8em;
-  @include border-radius(1.8em);
-  border: 4px dashed $dark-gray;
+
+.sidebar {
+  float: left;
+  width: 5%;
+  min-height: 100%;
 }
+
+.white { background-color: $white; }
+.yellow { background-color: $yellow; }
+.pink { background-color: $pink; }
+.blue { background-color: $blue; }
 
 // section: white
 .dropbox {
@@ -47,4 +47,18 @@ th, td {
   height: $size;
   border: 8px dashed $dark-gray;
   padding: 100px;
+}
+
+// section: yellow
+table { width: 100%; }
+tr.song-row { 
+  // TODO: huh?
+  @include border-radius(18px);
+  border: 4px dashed $dark-gray;
+}
+th, td {
+  font-size: 3em;
+  padding: 0.4em 0.8em;
+  /* @include border-radius(18px); */
+  /* border: 4px dashed $dark-gray; */
 }
