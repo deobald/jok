@@ -6,6 +6,6 @@
   [:li (:title song)])
 
 (defn index [request songs]
-  (layou/t request "pink"
+  (layou/t request "pink" "yellow" "white"
            [:ul 
             (map song-list songs)]))

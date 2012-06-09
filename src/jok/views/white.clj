@@ -10,10 +10,10 @@
            [:div.progress-bar]]]]))
 
 (defn index [request]
-  (layou/t request "white"
+  (layou/t request "white" "pink" "yellow"
            [:div
             [:center
              [:div.dropbox
               "drop files here."]]
-            (progress-bar)]))
-
+            (progress-bar)]
+           [:script {:src "/js/white.js"}]))

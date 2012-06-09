@@ -15,24 +15,40 @@ body, h1, h2, h3, h4, h5, div, p {
   @include prgmr-font;
 }
 
-body.white {
+html, body, .page {
+  height: 100%;
+}
+
+.white {
   background-color: $white;
 }
 
-body.yellow {
+.yellow {
   background-color: $yellow;
 }
 
-body.pink {
+.pink {
   background-color: $pink;
 }
 
-body.blue {
+.blue {
   background-color: $blue;
 }
 
 h1 {
   font-size: 96px;
+}
+
+.main {
+  float: left;
+  width: 90%;
+  min-height: 100%;
+}
+
+.sidebar {
+  float: left;
+  width: 5%;
+  min-height: 100%;
 }
 
 .dropbox {
