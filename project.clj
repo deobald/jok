@@ -7,7 +7,8 @@
                  [compojure "1.1.0"]
                  [hiccup "1.0.0"]
                  [ring/ring-jetty-adapter "1.1.0"]
-
+                 [vlcj "2.1.0"]
+                 [net.java.dev.jna/jna "3.4.0"] ;; mvn does not resolve this dependency
                  ;; [org.clojars.ghoseb/cron4j "2.2.1"]
                  ;; [fleetdb "0.3.1"]
                  ;; [corroborate "0.2.0"]

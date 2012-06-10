@@ -1,4 +1,5 @@
-(ns jok.models.pink)
+(ns jok.models.pink
+  (:require [jok.music-player :as player]))
 
 (defn new-queue []
   (clojure.lang.PersistentQueue/EMPTY))
@@ -10,3 +11,6 @@
 
 (defn current-song []
   (peek @queue))
+
+(defn play []
+  (player/play (current-song)))
