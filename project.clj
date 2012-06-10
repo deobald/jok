@@ -3,8 +3,9 @@
   :description "Jokbox"
   :repositories {"local" ~(str (.toURI (java.io.File. "maven_repository")))}
   :dependencies [[org.clojure/clojure "1.3.0"]
+                 [org.clojure/tools.cli "0.2.1"]
                  [org.jaudiotagger/jaudiotagger "2.0.1"]
-                 [compojure "1.1.0"]
+                 [compojure "1.1.0"] 
                  [hiccup "1.0.0"]
                  [ring/ring-jetty-adapter "1.1.0"]
                  [vlcj "2.1.0"]

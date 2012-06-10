@@ -1,16 +1,22 @@
 (ns jok.core
-  (:require [compojure.handler :as handler]
+  (:require [clojure.tools.cli :as cli]
+            [compojure.handler :as handler]
             [ring.adapter.jetty :as adapter]
-            [jok.routes :as routes]
-            ;;[jukebox-player.core :as player]
-            ;;[jukebox-web.models.playlist :as playlist]
-            ))
-
-;; TODO: [pink] revisit
-;; (player/start (playlist/playlist-seq))
+            [jok.config :as config]
+            [jok.routes :as routes]))
 
 (def app
   (-> (handler/site routes/roots)))
+
+(defn- opts-for [args]
+  (first (cli/cli args
+                  ["-s" "--[no-]stream" "Stream over multicast RTP" :default false]
+                  ["-p" "--port" "Port" :default 3005 :parse-fn #(Integer. %)])))
+
+(defn -main [& args]
+  (let [opts (opts-for args)]
+    (config/init opts)
+    (adapter/run-jetty app opts)))
 
 ;; (defn -main [& args]
 ;;   (with-command-line args "jok"
