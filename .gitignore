@@ -12,3 +12,4 @@ nohup.out
 .lein*
 pom.xml
 .lein-deps-sum
+.\#*

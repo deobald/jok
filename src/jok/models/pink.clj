@@ -13,4 +13,7 @@
   (peek @queue))
 
 (defn play []
-  (player/play (current-song)))
+  (player/play (:file (current-song))))
+
+(defn pause []
+ (player/pause))

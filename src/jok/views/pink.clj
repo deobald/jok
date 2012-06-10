@@ -7,5 +7,9 @@
 
 (defn index [request songs]
   (layou/t request "pink" "yellow" "white"
-           [:ul 
-            (map song-list songs)]))
+           (html
+            [:div.player
+             [:a {:href "/pink/play"} "Play"]
+             [:a {:href "/pink/pause"} "Pause"]]
+            [:ul
+             (map song-list songs)])))

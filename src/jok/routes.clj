@@ -15,6 +15,8 @@
   (GET "/yellow" [] yellow-controller/index)
   (POST "/yellow/enqueue" [] yellow-controller/enqueue)
   (GET "/pink" [] pink-controller/index)
+  (GET "/pink/play" [] pink-controller/play)
+  (GET "/pink/pause" [] pink-controller/pause)
 
   (route/files "/music" {:root config/MUSIC-DIR})
   (route/resources "/")

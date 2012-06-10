@@ -5,7 +5,8 @@
 
 (defn to-song [file-path]
   (assoc (tagging/track-metadata file-path)
-    :file file-path :relative-path (clojure.string/replace file-path config/MUSIC-DIR "")))
+    :file file-path
+    :relative-path (clojure.string/replace file-path config/MUSIC-DIR "")))
 
 (defn all-songs [dir]
   (map to-song (files/all-music-files dir)))
