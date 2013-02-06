@@ -1,14 +1,14 @@
 (defproject
   jukebox "1.0.0-SNAPSHOT"
   :description "Jokbox"
-  :repositories {"local" ~(str (.toURI (java.io.File. "maven_repository")))}
+  :repositories {"project" "file:repo"}
   :dependencies [[org.clojure/clojure "1.3.0"]
                  [org.clojure/tools.cli "0.2.1"]
                  [org.jaudiotagger/jaudiotagger "2.0.1"]
                  [compojure "1.1.0"] 
                  [hiccup "1.0.0"]
                  [ring/ring-jetty-adapter "1.1.0"]
-                 [vlcj "2.1.0"]
+                 [local/vlcj "2.1.0"]
                  [net.java.dev.jna/jna "3.4.0"] ;; mvn does not resolve this dependency
                  ;; [org.clojars.ghoseb/cron4j "2.2.1"]
                  ;; [fleetdb "0.3.1"]
