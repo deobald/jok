@@ -1,17 +1,25 @@
-= jok
+jok
+===
 
 office jukebox
 
-== hacking
 
-# install [leiningen](https://github.com/technomancy/leiningen)
-## install java
-## install gpg
-# `lein deps`
-# `lein ring server`
-## sanity-check "-Djna.library.path" in :jvm-opts of project.clj
+hacking
+-------
 
-There is still old code in these directories:
+prerequisites:
+
+1. install [leiningen](https://github.com/technomancy/leiningen)
+2. install java
+3. install gpg
+
+running in dev mode:
+
+1. `lein deps`
+2. `lein ring server`
+3. sanity-check "-Djna.library.path" in :jvm-opts of project.clj
+
+old code:
 
 * resources/public/css
 * resources/public/js
@@ -19,11 +27,13 @@ There is still old code in these directories:
 * src/jukebox_web
 
 
-== running
+running
+-------
 
 Try `lein ring war` and run it in a container for now. We need a self-supporting binary, though.
 
 
-== license
+license
+-------
 
 Since we're using vlcj, we're stuck with GPL 3.0+. Sorry kids.
