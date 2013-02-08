@@ -18,7 +18,8 @@
 
   :cljsbuild {:builds
               [{:source-paths ["src-cljs"]
-                :compiler {:optimizations :whitespace
+                :compiler {:output-to "resources/public/js/cljs-main.js"
+                           :optimizations :whitespace
                            :pretty-print true}}]}
 
   ;; TODO: this is a huge sadness. fix in a cross-platform way.

@@ -16,5 +16,7 @@
              [:div.dropbox
               [:h1 "drop files here."]]
              (progress-bar)]]
-            [:script {:src "/js/white.js"}]))
-
+           (html
+            [:script {:src "/js/white.js"}]
+            [:script {:src "/js/cljs-main.js"}])
+           ))
