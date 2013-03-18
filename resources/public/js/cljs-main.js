@@ -487,6 +487,19 @@ goog.base = function(me, opt_methodName, var_args) {
 goog.scope = function(fn) {
   fn.call(goog.global)
 };
+goog.provide("goog.debug.Error");
+goog.debug.Error = function(opt_msg) {
+  if(Error.captureStackTrace) {
+    Error.captureStackTrace(this, goog.debug.Error)
+  }else {
+    this.stack = (new Error).stack || ""
+  }
+  if(opt_msg) {
+    this.message = String(opt_msg)
+  }
+};
+goog.inherits(goog.debug.Error, Error);
+goog.debug.Error.prototype.name = "CustomError";
 goog.provide("goog.string");
 goog.provide("goog.string.Unicode");
 goog.string.Unicode = {NBSP:"\u00a0"};
@@ -927,19 +940,6 @@ goog.string.parseInt = function(value) {
   }
   return NaN
 };
-goog.provide("goog.debug.Error");
-goog.debug.Error = function(opt_msg) {
-  if(Error.captureStackTrace) {
-    Error.captureStackTrace(this, goog.debug.Error)
-  }else {
-    this.stack = (new Error).stack || ""
-  }
-  if(opt_msg) {
-    this.message = String(opt_msg)
-  }
-};
-goog.inherits(goog.debug.Error, Error);
-goog.debug.Error.prototype.name = "CustomError";
 goog.provide("goog.asserts");
 goog.provide("goog.asserts.AssertionError");
 goog.require("goog.debug.Error");
@@ -21082,10 +21082,40 @@ cljs.core.UUID.prototype.toString = function() {
 };
 goog.provide("uploading");
 goog.require("cljs.core");
-uploading.hello = function hello() {
-  return alert("droped")
+uploading.to_array = function to_array(js_col) {
+  return cljs.core.js__GT_clj.call(null, cljs.core.clj__GT_js.call(null, cljs.core.PersistentVector.EMPTY).slice.call(js_col))
 };
-document.addEventListener("drop", uploading.hello);
+uploading.stop_actions = function stop_actions(event) {
+  event.stopPropagation();
+  return event.preventDefault()
+};
+uploading.render = function render(event) {
+  var G__6149 = cljs.core.seq.call(null, uploading.to_array.call(null, event.dataTransfer.files));
+  while(true) {
+    if(G__6149) {
+      var file = cljs.core.first.call(null, G__6149);
+      alert(file.name);
+      var G__6150 = cljs.core.next.call(null, G__6149);
+      G__6149 = G__6150;
+      continue
+    }else {
+      return null
+    }
+    break
+  }
+};
+uploading.listen_to_events = function listen_to_events() {
+  var G__6152 = document;
+  G__6152.addEventListener("dragenter", uploading.stop_actions);
+  G__6152.addEventListener("dragexit", uploading.stop_actions);
+  G__6152.addEventListener("dragover", uploading.stop_actions);
+  G__6152.addEventListener("drop", uploading.stop_actions);
+  G__6152.addEventListener("drop", uploading.render);
+  return G__6152
+};
+uploading.initialize = function initialize() {
+  return uploading.listen_to_events.call(null)
+};
+uploading.initialize.call(null);
 goog.provide("example");
 goog.require("cljs.core");
-alert("Hello from ClojureScript!");
