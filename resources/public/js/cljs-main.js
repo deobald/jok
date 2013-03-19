@@ -21089,14 +21089,24 @@ uploading.stop_actions = function stop_actions(event) {
   event.stopPropagation();
   return event.preventDefault()
 };
+uploading.send_file = function send_file(file) {
+  var xhr = new XMLHttpRequest;
+  var data = function() {
+    var G__6939 = new FormData;
+    G__6939.append("file", file);
+    return G__6939
+  }();
+  xhr.open("POST", "/white/upload");
+  return xhr.send(data)
+};
 uploading.render = function render(event) {
-  var G__6149 = cljs.core.seq.call(null, uploading.to_array.call(null, event.dataTransfer.files));
+  var G__6941 = cljs.core.seq.call(null, uploading.to_array.call(null, event.dataTransfer.files));
   while(true) {
-    if(G__6149) {
-      var file = cljs.core.first.call(null, G__6149);
-      alert(file.name);
-      var G__6150 = cljs.core.next.call(null, G__6149);
-      G__6149 = G__6150;
+    if(G__6941) {
+      var file = cljs.core.first.call(null, G__6941);
+      uploading.send_file.call(null, file);
+      var G__6942 = cljs.core.next.call(null, G__6941);
+      G__6941 = G__6942;
       continue
     }else {
       return null
@@ -21105,13 +21115,13 @@ uploading.render = function render(event) {
   }
 };
 uploading.listen_to_events = function listen_to_events() {
-  var G__6152 = document;
-  G__6152.addEventListener("dragenter", uploading.stop_actions);
-  G__6152.addEventListener("dragexit", uploading.stop_actions);
-  G__6152.addEventListener("dragover", uploading.stop_actions);
-  G__6152.addEventListener("drop", uploading.stop_actions);
-  G__6152.addEventListener("drop", uploading.render);
-  return G__6152
+  var G__6944 = document;
+  G__6944.addEventListener("dragenter", uploading.stop_actions);
+  G__6944.addEventListener("dragexit", uploading.stop_actions);
+  G__6944.addEventListener("dragover", uploading.stop_actions);
+  G__6944.addEventListener("drop", uploading.stop_actions);
+  G__6944.addEventListener("drop", uploading.render);
+  return G__6944
 };
 uploading.initialize = function initialize() {
   return uploading.listen_to_events.call(null)

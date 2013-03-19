@@ -11,9 +11,16 @@
   (.stopPropagation event)
   (.preventDefault event))
 
+(defn send-file [file]
+  (let [xhr (js/XMLHttpRequest.)
+        data (doto (js/FormData.) (.append "file" file))]
+    ;; TODO: success/error callbacks/notifications
+    (.open xhr "POST" "/white/upload")
+    (.send xhr data)))
+
 (defn render [event]
   (doseq [file (to-array (-> event .-dataTransfer .-files))]
-    (js/alert (.-name file))))
+    (send-file file)))
 
 (defn listen-to-events []
   (doto js/document
