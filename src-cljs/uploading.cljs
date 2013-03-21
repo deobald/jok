@@ -1,4 +1,5 @@
-(ns uploading)
+(ns uploading
+  (:require interop))
 
 ;; from http://www.dotkam.com/tag/clojurescript/
 (defn to-array [js-col]
@@ -23,12 +24,12 @@
     (send-file file)))
 
 (defn listen-to-events []
-  (doto js/document
-    (.addEventListener "dragenter" stop-actions)
-    (.addEventListener "dragexit" stop-actions)
-    (.addEventListener "dragover" stop-actions)
-    (.addEventListener "drop" stop-actions)
-    (.addEventListener "drop" render)))
+  (let [events [["dragenter" stop-actions]
+                ["dragexit" stop-actions]
+                ["dragover" stop-actions]
+                ["drop" stop-actions]
+                ["drop" render]]]
+    (doseq [e events] (apply interop/add-event-listener e))))
 
 (defn initialize []
   (listen-to-events))

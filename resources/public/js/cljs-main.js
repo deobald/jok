@@ -21080,8 +21080,14 @@ cljs.core.UUID.prototype.toString = function() {
   var this$ = this;
   return cljs.core.pr_str.call(null, this$)
 };
+goog.provide("interop");
+goog.require("cljs.core");
+interop.add_event_listener = function add_event_listener(event, action) {
+  return document.addEventListener(event, action)
+};
 goog.provide("uploading");
 goog.require("cljs.core");
+goog.require("interop");
 uploading.to_array = function to_array(js_col) {
   return cljs.core.js__GT_clj.call(null, cljs.core.clj__GT_js.call(null, cljs.core.PersistentVector.EMPTY).slice.call(js_col))
 };
@@ -21092,21 +21098,21 @@ uploading.stop_actions = function stop_actions(event) {
 uploading.send_file = function send_file(file) {
   var xhr = new XMLHttpRequest;
   var data = function() {
-    var G__6939 = new FormData;
-    G__6939.append("file", file);
-    return G__6939
+    var G__5001 = new FormData;
+    G__5001.append("file", file);
+    return G__5001
   }();
   xhr.open("POST", "/white/upload");
   return xhr.send(data)
 };
 uploading.render = function render(event) {
-  var G__6941 = cljs.core.seq.call(null, uploading.to_array.call(null, event.dataTransfer.files));
+  var G__5003 = cljs.core.seq.call(null, uploading.to_array.call(null, event.dataTransfer.files));
   while(true) {
-    if(G__6941) {
-      var file = cljs.core.first.call(null, G__6941);
+    if(G__5003) {
+      var file = cljs.core.first.call(null, G__5003);
       uploading.send_file.call(null, file);
-      var G__6942 = cljs.core.next.call(null, G__6941);
-      G__6941 = G__6942;
+      var G__5004 = cljs.core.next.call(null, G__5003);
+      G__5003 = G__5004;
       continue
     }else {
       return null
@@ -21115,13 +21121,20 @@ uploading.render = function render(event) {
   }
 };
 uploading.listen_to_events = function listen_to_events() {
-  var G__6944 = document;
-  G__6944.addEventListener("dragenter", uploading.stop_actions);
-  G__6944.addEventListener("dragexit", uploading.stop_actions);
-  G__6944.addEventListener("dragover", uploading.stop_actions);
-  G__6944.addEventListener("drop", uploading.stop_actions);
-  G__6944.addEventListener("drop", uploading.render);
-  return G__6944
+  var events = cljs.core.PersistentVector.fromArray([cljs.core.PersistentVector.fromArray(["dragenter", uploading.stop_actions], true), cljs.core.PersistentVector.fromArray(["dragexit", uploading.stop_actions], true), cljs.core.PersistentVector.fromArray(["dragover", uploading.stop_actions], true), cljs.core.PersistentVector.fromArray(["drop", uploading.stop_actions], true), cljs.core.PersistentVector.fromArray(["drop", uploading.render], true)], true);
+  var G__5006 = cljs.core.seq.call(null, events);
+  while(true) {
+    if(G__5006) {
+      var e = cljs.core.first.call(null, G__5006);
+      cljs.core.apply.call(null, interop.add_event_listener, e);
+      var G__5007 = cljs.core.next.call(null, G__5006);
+      G__5006 = G__5007;
+      continue
+    }else {
+      return null
+    }
+    break
+  }
 };
 uploading.initialize = function initialize() {
   return uploading.listen_to_events.call(null)
