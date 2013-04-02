@@ -15,8 +15,4 @@
             [:center
              [:div.dropbox
               [:h1 "drop files here."]]
-             (progress-bar)]]
-           (html
-            [:script {:src "/js/white.js"}]
-            [:script {:src "/js/cljs-main.js"}])
-           ))
+             (progress-bar)]]))

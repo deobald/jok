@@ -12,14 +12,12 @@
   (html5
    [:head
     [:title "jok"]
-    [:script {:src "/js/v/jquery-1.6.4.min.js"}]
-    [:script {:src "/js/v/underscore-min.js"}]
-    [:script {:src "/js/jok.js"}]
+    [:script {:src "/js/cljs-main.js"}]
     (include-css "/css/reset.css")
     (include-css "/css/jok.css")
     (html header)]
 
-   [:body {:data-accept "mp3|m4a|mp4|mpeg"}
+   [:body {:data-accept "mp3|m4a|mp4|mpeg" :onload "slide.ready();"}
     [:div.page
      [:div {:class (str left-pane " sidebar")} "&nbsp;"]
      [:div {:class (str color " main")}

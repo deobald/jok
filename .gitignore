@@ -14,3 +14,4 @@ nohup.out
 pom.xml
 .lein-deps-sum
 .\#*
+resources/public/js/cljs-main.js

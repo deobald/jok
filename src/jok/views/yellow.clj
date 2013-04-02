@@ -3,7 +3,13 @@
             [hiccup.util :as hutil]
             [jok.files :as jfiles]
             [jok.views.layou :as layou]
-            [jok.models.yellow :as model]))
+            [jok.models.yellow :as model])
+  (:use [hiccup.core :only [html]]))
+
+(defn- search-bar []
+  [:tr
+   [:td {:colspan 4}
+    [:input#search {:type "text"}]]])
 
 (defn- song-row [song]
   [:tr.song-row
@@ -29,4 +35,6 @@
    (map song-row songs)])
 
 (defn index [request songs]
-  (layou/t request "yellow" "white" "pink" (song-table songs)))
+  (layou/t request "yellow" "white" "pink"
+           (html (search-bar)
+                 (song-table songs))))
