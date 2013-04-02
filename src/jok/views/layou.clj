@@ -12,7 +12,7 @@
   (html5
    [:head
     [:title "jok"]
-    [:script {:src "/js/cljs-main.js"}]
+    [:script {:src "/js/jok.js"}]
     (include-css "/css/reset.css")
     (include-css "/css/jok.css")
     (html header)]
