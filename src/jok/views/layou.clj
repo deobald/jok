@@ -17,7 +17,8 @@
     (include-css "/css/jok.css")
     (html header)]
 
-   [:body {:data-accept "mp3|m4a|mp4|mpeg" :onload "slide.ready();"}
+   [:body {:data-accept "mp3|m4a|mp4|mpeg"
+           :onload "slide.ready(); search.ready();"}
     [:div.page
      [:div {:class (str left-pane " sidebar")} "&nbsp;"]
      [:div {:class (str color " main")}

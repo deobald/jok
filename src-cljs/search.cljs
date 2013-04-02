@@ -1,13 +1,8 @@
 (ns search
-  (:require [goog.ui.ac :as ac]))
+  (:require [goog.ui.ac :as auto]))
 
-;; (load-namespace 'goog.ui.ac)
-
-;; (defn connect-auto-complete []
-;;   (ac/createSimpleAutoComplete
-;;                              ["hi" "bye"]
-;;                              (.getElementById js/document "search")
-;;                              true)
-
-;;(connect-auto-complete)
+(defn ready []
+  (auto/createSimpleAutoComplete (clj->js ["this is one optioner" "here is another"])
+                                 (.getElementById js/document "search")
+                                 true))
 
