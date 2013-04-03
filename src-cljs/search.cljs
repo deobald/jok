@@ -1,5 +1,7 @@
 (ns search
-  (:require [goog.ui.ac :as auto]
+  (:require [clojure.browser.event :as event]
+            [clojure.browser.dom :as dom]
+            [goog.ui.ac :as auto]
             [goog.dom :as gdom]
             [goog.style :as gstyle]
             interop))
@@ -27,9 +29,6 @@
       (hide row))))
 
 (defn ready []
-;;  (.addEventListener (gdom/query "#search") )
-  ;; (auto/createSimpleAutoComplete (clj->js ["this is one optioner" "here is another"])
-  ;;                                (.getElementById js/document "search")
-  ;;                                true)
-  )
+  (let [search-box (dom/get-element :search)]
+    (event/listen search-box "keyup" #(searchy (.-value search-box)))))
 
