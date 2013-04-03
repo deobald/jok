@@ -11,8 +11,17 @@
   ISeqable
   (-seq [array] (array-seq array 0)))
 
+(extend-type js/HTMLCollection
+  ISeqable
+  (-seq [array] (array-seq array 0)))
+
 (defn add-event-listener [event action]
   (.addEventListener js/document event action))
 
 (defn log [msg]
   (.log js/console msg))
+
+(defn dbg [where o]
+  (log where)
+  (log o)
+  o)

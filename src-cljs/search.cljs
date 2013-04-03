@@ -1,17 +1,22 @@
 (ns search
   (:require [goog.ui.ac :as auto]
             [goog.dom :as gdom]
-            [goog.style :as gstyle]))
+            [goog.style :as gstyle]
+            interop))
 
 ;; on keypress:
 ;; - search song-rows for matching text
 ;; - hide all non-matching rows
 
-(defn all-songs []
-  (gdom/query "#songs .song"))
+(defn all-song-rows []
+  (gdom/query "#songs .song-row"))
+
+(defn match-column? [s column]
+  (>= (.indexOf (gdom/getTextContent column) s) 0))
 
 (defn match? [s row]
-  (>= (.indexOf (gdom/getTextContent row) s) 0))
+  (let [f (fn [was field] (or was (match-column? s field)))]
+    (reduce f false (gdom/getChildren row))))
 
 (defn show [row]
   (gstyle/showElement row true))
@@ -21,7 +26,7 @@
 
 (defn searchy [s]
   ;; if s is an empty string, show all
-  (doseq [row (all-songs)]
+  (doseq [row (all-song-rows)]
     (if (match? s row)
       (show row)
       (hide row))))
