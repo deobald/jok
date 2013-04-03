@@ -1,13 +1,6 @@
 (ns uploading
   (:require interop))
 
-;; from http://www.dotkam.com/tag/clojurescript/
-(defn to-array [js-col]
-  (-> (clj->js []) 
-      (.-slice)
-      (.call js-col)
-      (js->clj)))
-
 (defn stop-actions [event]
   (.stopPropagation event)
   (.preventDefault event))
@@ -20,7 +13,7 @@
     (.send xhr data)))
 
 (defn render [event]
-  (doseq [file (to-array (-> event .-dataTransfer .-files))]
+  (doseq [file (interop/to-array (-> event .-dataTransfer .-files))]
     (send-file file)))
 
 (defn listen-to-events []

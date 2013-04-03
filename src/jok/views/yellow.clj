@@ -13,9 +13,9 @@
 
 (defn- song-row [song]
   [:tr.song-row
-   [:td (:title song)]
-   [:td (:artist song)]
-   [:td (:album song)]
+   [:td.song (:title song)]
+   [:td.artist (:artist song)]
+   [:td.album (:album song)]
    [:td
     [:div.enqueue-button
      (form/form-to [:post "/yellow/enqueue"]
@@ -26,7 +26,7 @@
                            (jfiles/url-encode-parts (:relative-path song)))} "⇣"]]]])
 
 (defn- song-table [songs]
-  [:table
+  [:table#songs
    [:tr
     [:th "song"]
     [:th "artist"]
