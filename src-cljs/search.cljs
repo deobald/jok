@@ -1,6 +1,7 @@
 (ns search
   (:require [clojure.browser.event :as event]
             [clojure.browser.dom :as dom]
+            [clojure.string :as string]
             [goog.ui.ac :as auto]
             [goog.dom :as gdom]
             [goog.style :as gstyle]
@@ -9,8 +10,11 @@
 (defn all-song-rows []
   (gdom/query "#songs .song-row"))
 
+(defn column-text [c]
+  (string/lower-case (gdom/getTextContent c)))
+
 (defn match-column? [s column]
-  (>= (.indexOf (gdom/getTextContent column) s) 0))
+  (>= (.indexOf (column-text column) (string/lower-case s)) 0))
 
 (defn match? [s row]
   (let [f (fn [was field] (or was (match-column? s field)))]
