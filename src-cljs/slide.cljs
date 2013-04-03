@@ -6,7 +6,7 @@
             interop))
 
 (defn find-by-classes [classes]
-  (.item (gdom/query classes)))
+  (.item (gdom/query classes) 0))
 
 (defn slide-to [color]
   (set! (.-location js/window) (str "/" color)))

@@ -20,7 +20,11 @@
               [{:source-paths ["src-cljs"]
                 :compiler {:output-to "resources/public/js/jok.js"
                            :optimizations :whitespace
-                           :pretty-print true}}]}
+                           :pretty-print true}}]
+              :repl-listen-port
+              9000
+              :repl-launch-commands
+              {"x" ["firefox" "-jsconsole" "http://localhost:3000"]}}
 
   ;; TODO: this is a huge sadness. fix in a cross-platform way.
   :jvm-opts ["-Djna.library.path=/Applications/VLC.app/Contents/MacOS/lib"])

@@ -16,4 +16,6 @@ pom.xml
 .\#*
 resources/public/js/cljs-main.js
 resources/public/js/jok.js
+/out
+/repl
 
