@@ -19,6 +19,11 @@ running in dev mode:
 2. `lein ring server`
 3. sanity-check "-Djna.library.path" in :jvm-opts of project.clj
 
+repls:
+
+* `nrepl-jack-in` from emacs
+* `./cljs-repl.sh`
+
 old code:
 
 * resources/public/css
