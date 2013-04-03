@@ -11,27 +11,32 @@
    [:td {:colspan 4}
     [:input#search {:type "text"}]]])
 
+(defn- song-header-row []
+  [:tr
+   [:th.song "song"]
+   [:th.artist "artist"]
+   [:th.album "album"]
+   [:th.enqueue "actions"]
+   [:th.download "actions"]])
+
 (defn- song-row [song]
   [:tr.song-row
    [:td.song (:title song)]
    [:td.artist (:artist song)]
    [:td.album (:album song)]
-   [:td
+   [:td.enqueue
     [:div.enqueue-button
      (form/form-to [:post "/yellow/enqueue"]
                    (form/hidden-field "file" (:file song))
-                   (form/submit-button "+"))]
+                   (form/submit-button "+"))]]
+   [:td.download
     [:div.download-link
      [:a {:href (hutil/url "/music"
                            (jfiles/url-encode-parts (:relative-path song)))} "⇣"]]]])
 
 (defn- song-table [songs]
   [:table#songs
-   [:tr
-    [:th "song"]
-    [:th "artist"]
-    [:th "album"]
-    [:th "actions"]]
+;;   (song-header-row)
    (map song-row songs)])
 
 (defn index [request songs]

@@ -44,6 +44,9 @@ html, body, .page {
   border: 8px dashed #333333;
   padding: 100px; }
 
+#search {
+  font-size: 3em; }
+
 table {
   width: 100%; }
 
@@ -55,30 +58,30 @@ tr.song-row {
   border-radius: 18px;
   border: 4px dashed #333333; }
 
+.artist, .album {
+  display: none; }
+
 th, td {
   font-size: 3em;
   padding: 0.4em 0.8em;
   /* @include border-radius(18px); */
   /* border: 4px dashed $dark-gray; */ }
 
-#search {
-  font-size: 3em; }
+.queued-song {
+  list-style-type: none;
+  clear: both; }
 
-.ac-renderer {
-  font: normal 13px Arial, sans-serif;
-  position: absolute;
-  background: #fff;
-  border: 1px solid #666;
-  -moz-box-shadow: 2px 2px 2px rgba(102, 102, 102, 0.4);
-  -webkit-box-shadow: 2px 2px 2px rgba(102, 102, 102, 0.4);
-  width: 300px; }
+.queued-song > div {
+  float: left;
+  margin-bottom: 16px; }
 
-.ac-row {
-  cursor: pointer;
-  padding: .4em; }
-
-.ac-highlighted {
-  font-weight: bold; }
-
-.ac-active {
-  background-color: #b2b4bf; }
+.queued-song h1 {
+  font-size: 24px; }
+.queued-song h2 {
+  font-size: 16px; }
+.queued-song .play {
+  padding: 16px;
+  border: 1px solid; }
+.queued-song .pause {
+  padding: 16px;
+  border: 1px solid; }

@@ -50,11 +50,18 @@ html, body, .page {
 }
 
 // section: yellow
+#search {
+  font-size: 3em;
+}
+
 table { width: 100%; }
 tr.song-row { 
   // TODO: huh?
   @include border-radius(18px);
   border: 4px dashed $dark-gray;
+}
+.artist, .album {
+  display: none;
 }
 th, td {
   font-size: 3em;
@@ -63,33 +70,18 @@ th, td {
   /* border: 4px dashed $dark-gray; */
 }
 
-#search {
-  font-size: 3em;
+// section: pink
+.queued-song {
+  list-style-type: none;
+  clear: both;
 }
-
-
-
-/// google autocomplete
-
-.ac-renderer {
-  font: normal 13px Arial, sans-serif;
-  position: absolute;
-  background: #fff;
-  border: 1px solid #666;
-  -moz-box-shadow: 2px 2px 2px rgba(102, 102, 102, .4);
-  -webkit-box-shadow: 2px 2px 2px rgba(102, 102, 102, .4);
-  width: 300px;
+.queued-song > div {
+  float: left;
+  margin-bottom: 16px;
 }
-
-.ac-row {
-  cursor: pointer;
-  padding: .4em;
-}
-
-.ac-highlighted {
-  font-weight: bold;
-}
-
-.ac-active {
-  background-color: #b2b4bf;
+.queued-song {
+  h1 { font-size: 24px; }
+  h2 { font-size: 16px; }
+  .play { padding: 16px; border: 1px solid; }
+  .pause { padding: 16px; border: 1px solid; }
 }
