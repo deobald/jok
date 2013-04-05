@@ -91,7 +91,7 @@ function Swipe(container, options) {
     if (browser.transitions) {
 
       var diff = Math.abs(index-to) - 1;
-      var direction = -1; //Math.abs(index-to) / (index-to); // 1:right -1:left
+      var direction = Math.abs(index-to) / (index-to); // 1:right -1:left
 
       while (diff--) move((to > index ? to : index) - diff - 1, width * direction, 0);
 
