@@ -9,12 +9,12 @@
 <body>
 <div id="left-arrow" 
      style="font-size: 50px; position: absolute; left: 0%; top: 50%; z-index: 1000;"
-     onclick="javascript:currentPage = (currentPage === 0 ? pages.length - 1 : (currentPage - 1) % pages.length); $.mobile.changePage($(pages[currentPage]), { transition: 'slide', reverse: true});">
+     onclick="javascript:pageLeft();">
 &lt;
 </div>
 <div id="right-arrow" 
      style="font-size: 50px; position: absolute; right: 0%; top: 50%; z-index: 1000;"
-     onclick="javascript:$.mobile.changePage($(pages[++currentPage % pages.length]), { transition: 'slide' });">
+     onclick="javascript:pageRight();">
 &gt;
 </div>
     <div id="foo" data-role="page" style="background-color: blue;">ABCD</div>
@@ -22,7 +22,17 @@
     <div id="baz" data-role="page" style="background-color: green;">&nbsp;</div>
   
 <script type="text/javascript">
+  function pageLeft() {
+    currentPage = (currentPage === 0 ? pages.length - 1 : (currentPage - 1) % pages.length);
+    $.mobile.changePage($(pages[currentPage]), { transition: 'slide', reverse: true});
+  };
+
+  function pageRight() {
+    $.mobile.changePage($(pages[++currentPage % pages.length]), { transition: 'slide' });
+  };
   var pages = $("div[data-role=page]");
+  pages.bind('swiperight', pageLeft);
+  pages.bind('swipeleft', pageRight); 
   var currentPage = 0;
 </script>
 </body>
