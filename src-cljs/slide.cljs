@@ -3,26 +3,28 @@
             swipe 
             interop))
 
-(defn saved-scroll []
+(defn- body-element []
+  (first (gdom/getElementsByTagNameAndClass "body")))
+
+(defn- get-saved-scroll []
   (.-otherScroll js/window))
 
+(defn- set-saved-scroll [position]
+  (set! (.-otherScroll js/window) position))
+
+(defn- get-body-scroll []
+  (.-scrollTop (body-element)))
+
+(defn- set-body-scroll [position]
+  (set! (.-scrollTop (body-element)) position))
+
 (defn init []
-  (set! (.-bodyElement js/window) (first (gdom/getElementsByTagNameAndClass "body")))
-  (set! (saved-scroll) 0))
-
-(defn current-scroll []
-  (-> js/window .-bodyElement .-scrollTop))
-
-(defn save-scroll []
-  (set! (saved-scroll) (current-scroll)))
-
-(defn scroll-to [position]
-  (set! (current-scroll) position))
+  (set-saved-scroll 0))
 
 (defn swap-scrolls [index element]
-  (let [scroll-back-to (saved-scroll)]
-    (save-scroll)
-    (scroll-to scroll-back-to)))
+  (let [saved (get-saved-scroll)]
+    (set-saved-scroll (get-body-scroll))
+    (set-body-scroll saved)))
 
 (defn ready []
   (let [slider (.getElementById js/document "slider")

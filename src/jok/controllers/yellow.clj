@@ -5,9 +5,6 @@
             [jok.models.yellow :as model]
             [jok.models.pink :as pink]))
 
-(defn index [request]
-  (view/index request (model/all-songs config/MUSIC-DIR)))
-
 (defn enqueue [request]
   (let [song (model/to-song (-> request :form-params (get "file")))]
     (pink/enqueue! song)

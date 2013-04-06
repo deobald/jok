@@ -11,11 +11,9 @@
 
 (defroutes roots
   (GET "/" [] main-controller/index)
-  (GET "/white" [] white-controller/index)
   (POST "/white/upload" [] white-controller/upload)
-  (GET "/yellow" [] yellow-controller/index)
+  (POST "/white/upload-multiple" [] white-controller/upload-multiple)
   (POST "/yellow/enqueue" [] yellow-controller/enqueue)
-  (GET "/pink" [] pink-controller/index)
   (GET "/pink/play" [] pink-controller/play)
   (GET "/pink/pause" [] pink-controller/pause)
 

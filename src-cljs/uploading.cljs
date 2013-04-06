@@ -24,7 +24,5 @@
                 ["drop" render]]]
     (doseq [e events] (apply interop/add-event-listener e))))
 
-(defn initialize []
+(defn ready []
   (listen-to-events))
-
-(initialize)

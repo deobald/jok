@@ -7,9 +7,19 @@
   (:use [hiccup.core :only [html]]))
 
 (defn- search-bar []
-  [:tr
-   [:td {:colspan 4}
-    [:input#search {:type "text"}]]])
+  [:input#search {:type "text"}])
+
+(defn- upload-button []
+  [:form {:action "/white/upload-multiple" :method "post" :enctype "multipart/form-data"}
+   [:input {:name "file" :type "file" :size "20" :multiple "multiple"}]
+   [:input {:type "submit" :name "submit" :value "submit"}]])
+
+(defn- top-bar []
+  [:div
+   [:div.search {:colspan 4 :style "float: left;"}
+    (search-bar)]
+   [:div.upload
+    (upload-button)]])
 
 (defn- song-header-row []
   [:tr
@@ -40,10 +50,5 @@
    (map song-row songs)])
 
 (defn page [songs]
-  (html (search-bar)
+  (html (top-bar)
         (song-table songs)))
-
-(defn index [request songs]
-  (layou/t request "yellow" "white" "pink"
-           (html (search-bar)
-                 (song-table songs))))

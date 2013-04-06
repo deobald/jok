@@ -3,13 +3,10 @@
             [jok.views.pink :as view]
             [jok.models.pink :as model]))
 
-(defn index [request]
-  (view/index request @model/queue))
-
 (defn play [request]
   (model/play)
-  (response/redirect "/pink"))
+  (response/redirect "/"))
 
 (defn pause [request]
   (model/pause)
-  (response/redirect "/pink"))
+  (response/redirect "/"))

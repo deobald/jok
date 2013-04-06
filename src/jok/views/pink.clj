@@ -18,9 +18,3 @@
 (defn page [songs]
   [:ul
    (map song-list songs)])
-
-(defn index [request songs]
-  (layou/t request "pink" "yellow" "white"
-           (html
-            [:ul
-             (map song-list songs)])))
