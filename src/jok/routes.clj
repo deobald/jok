@@ -6,10 +6,11 @@
             [jok.controllers.white :as white-controller]
             [jok.controllers.yellow :as yellow-controller]
             [jok.controllers.pink :as pink-controller]
+            [jok.controllers.main :as main-controller]
             [jok.views.404 :as four-oh-four]))
 
 (defroutes roots
-  (GET "/" [] (response/redirect "/yellow"))
+  (GET "/" [] main-controller/index)
   (GET "/white" [] white-controller/index)
   (POST "/white/upload" [] white-controller/upload)
   (GET "/yellow" [] yellow-controller/index)

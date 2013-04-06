@@ -2,7 +2,7 @@
   (:require [jok.views.layou :as layou])
   (:use [hiccup.core :only [html]]))
 
-(defn- song-list [song]
+(defn song-list [song]
   [:li.queued-song
    [:div
     [:h1 (:title song)]
@@ -14,6 +14,10 @@
     [:a {:href "/pink/play"} "Play"]]
    [:div.pause
     [:a {:href "/pink/pause"} "Pause"]]])
+
+(defn page [songs]
+  [:ul
+   (map song-list songs)])
 
 (defn index [request songs]
   (layou/t request "pink" "yellow" "white"

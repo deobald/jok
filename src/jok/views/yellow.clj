@@ -36,8 +36,12 @@
 
 (defn- song-table [songs]
   [:table#songs
-;;   (song-header-row)
+   ;;   (song-header-row)
    (map song-row songs)])
+
+(defn page [songs]
+  (html (search-bar)
+        (song-table songs)))
 
 (defn index [request songs]
   (layou/t request "yellow" "white" "pink"
