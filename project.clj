@@ -17,10 +17,12 @@
   :ring {:handler jok.core/app}
 
   :cljsbuild {:builds
+              ;; TODO: create dev/production builds
               [{:source-paths ["src-cljs"]
                 :compiler {:output-to "resources/public/js/jok.js"
                            :optimizations :whitespace
-                           :pretty-print true}}]
+                           :pretty-print true
+                           :libs ["resources/public/js/v"]}}]
               :repl-listen-port
               9000
               :repl-launch-commands

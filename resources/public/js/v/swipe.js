@@ -6,7 +6,13 @@
  *
 */
 
-function Swipe(container, options) {
+//goog.provide('swipe');
+//goog.provide('swipe.Swipe');
+
+var swipe = swipe || {};
+swipe.Swipe = swipe.Swipe || {};
+
+swipe.Swipe = function(container, options) {
 
   "use strict";
 

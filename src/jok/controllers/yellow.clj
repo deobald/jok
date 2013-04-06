@@ -11,4 +11,4 @@
 (defn enqueue [request]
   (let [song (model/to-song (-> request :form-params (get "file")))]
     (pink/enqueue! song)
-    (response/redirect "/yellow")))
+    (response/redirect "/")))

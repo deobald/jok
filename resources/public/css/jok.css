@@ -33,6 +33,18 @@ html, body, .page {
 .blue {
   background-color: #7ca6cf; }
 
+#left-arrow, #right-arrow {
+  font-size: 50px;
+  position: fixed;
+  top: 50%;
+  z-index: 1000; }
+
+#left-arrow {
+  left: 0%; }
+
+#right-arrow {
+  right: 0%; }
+
 .dropbox {
   -webkit-border-radius: 60px;
   -moz-border-radius: 60px;

@@ -38,6 +38,15 @@ html, body, .page {
 .pink { background-color: $pink; }
 .blue { background-color: $blue; }
 
+#left-arrow, #right-arrow {
+  font-size: 50px;
+  position: fixed;
+  top: 50%;
+  z-index: 1000;
+}
+#left-arrow { left: 0%; }
+#right-arrow { right: 0%; }
+
 // section: white
 .dropbox {
   $size: 600px;
