@@ -1,24 +1,32 @@
 (ns slide
   (:require [goog.dom :as gdom]
-            goog.dom.query
-            [goog.events :as events]
-            [goog.events.EventType :as event-type]
             swipe 
             interop))
 
-;; (defn find-by-classes [classes]
-;;   (.item (gdom/query classes) 0))
+(defn saved-scroll []
+  (.-otherScroll js/window))
 
-;; (defn slide-to [color]
-;;   (set! (.-location js/window) (str "/" color)))
+(defn init []
+  (set! (.-bodyElement js/window) (first (gdom/getElementsByTagNameAndClass "body")))
+  (set! (saved-scroll) 0))
 
-;; (defn ready []
-;;   (doseq [color ["white" "yellow" "pink"]]
-;;     (if-let [e (find-by-classes (str ".sidebar." color))]
-;;       (events/listen e event-type/CLICK #(slide-to color)))))
+(defn current-scroll []
+  (-> js/window .-bodyElement .-scrollTop))
+
+(defn save-scroll []
+  (set! (saved-scroll) (current-scroll)))
+
+(defn scroll-to [position]
+  (set! (current-scroll) position))
+
+(defn swap-scrolls [index element]
+  (let [scroll-back-to (saved-scroll)]
+    (save-scroll)
+    (scroll-to scroll-back-to)))
 
 (defn ready []
   (let [slider (.getElementById js/document "slider")
-        swipey (swipe.Swipe. slider {:continuous false})]
+        swipey (swipe.Swipe. slider (clj->js {:continuous false :callback swap-scrolls}))]
+    (init)
     (set! (.-swipey js/window) swipey)
     (.setup swipey)))
