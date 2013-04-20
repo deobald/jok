@@ -2,13 +2,12 @@
   (:require [clojure.browser.event :as event]
             [clojure.browser.dom :as dom]
             [clojure.string :as string]
-            [goog.ui.ac :as auto]
             [goog.dom :as gdom]
             [goog.style :as gstyle]
             interop))
 
 (defn all-song-rows []
-  (gdom/query "#songs .song-row"))
+  (gdom/getElementsByClass "song-row"))
 
 (defn column-text [c]
   (string/lower-case (gdom/getTextContent c)))
